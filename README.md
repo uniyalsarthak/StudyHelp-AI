@@ -218,7 +218,7 @@ streamlit run src/app.py
 
 **Sarthak Uniyal**
 
-- GitHub: https://github.com/
+- GitHub: https://github.com/uniyalsarthak
 
 ---
 
