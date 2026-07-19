@@ -7,9 +7,7 @@ PROJECT_ROOT = os.path.dirname(BASE_DIR)
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 
 
-# -----------------------------
 # Get available subjects
-# -----------------------------
 def get_subjects():
     subjects = [
         folder for folder in os.listdir(DATA_DIR)
@@ -18,9 +16,7 @@ def get_subjects():
     return subjects
 
 
-# -----------------------------
 # Get PDFs inside a subject
-# -----------------------------
 def get_subject_files(subject):
     subject_path = os.path.join(DATA_DIR, subject)
 
