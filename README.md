@@ -1,4 +1,4 @@
-# 📚 StudyHelp AI - RAG Based NCERT Learning Assistant
+#  StudyHelp AI - RAG Based NCERT Learning Assistant
 
 An AI-powered educational assistant that answers **Class 12 NCERT** questions using **Retrieval-Augmented Generation (RAG)**. Instead of relying solely on a Large Language Model (LLM), StudyHelp AI retrieves relevant textbook content from a vector database and generates accurate, context-aware responses.
 
@@ -45,7 +45,7 @@ An AI-powered educational assistant that answers **Class 12 NCERT** questions us
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Programming Language
 
@@ -79,7 +79,7 @@ An AI-powered educational assistant that answers **Class 12 NCERT** questions us
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 StudyHelp-AI/
@@ -179,7 +179,7 @@ This will:
 
 ---
 
-## ▶️ Run the Application
+##  Run the Application
 
 ```bash
 streamlit run src/app.py
@@ -217,9 +217,3 @@ streamlit run src/app.py
 ##  Author
 
 **Sarthak Uniyal**
-
-- GitHub: https://github.com/uniyalsarthak
-
----
-
-## ⭐ If you found this project useful, consider giving it a star!
