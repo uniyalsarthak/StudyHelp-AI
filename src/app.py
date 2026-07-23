@@ -9,11 +9,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain.memory import ConversationBufferMemory
 
 from chatbot_utility import get_subjects
-from get_ytvid import get_yt_video_link
 
-# -----------------------------
 # Load env
-# -----------------------------
 load_dotenv()
 DEVICE = os.getenv("DEVICE", "cpu")
 
@@ -60,9 +57,7 @@ prompt = PromptTemplate(
 
 
 
-# -----------------------------
 # Setup chain
-# -----------------------------
 def setup_chain(subject):
     vector_db_path = os.path.join(VECTOR_DB_DIR, subject)
 
@@ -108,9 +103,7 @@ def setup_chain(subject):
     return chain
 
 
-# -----------------------------
 # Streamlit UI
-# -----------------------------
 st.set_page_config(page_title="StudyHelp", page_icon="📚")
 
 st.title("StudyHelp")
@@ -119,15 +112,11 @@ st.title("StudyHelp")
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = {}
 
-# if "video_history" not in st.session_state:
-#     st.session_state.video_history = {}
 
 if "chat_chain" not in st.session_state:
     st.session_state.chat_chain = None
 
-# -----------------------------
 # Subject selection
-# -----------------------------
 subjects = get_subjects()
 
 selected_subject = st.selectbox(
@@ -148,9 +137,7 @@ if selected_subject:
 
     st.session_state.selected_subject = selected_subject
 
-# -----------------------------
 # Display chat history
-# -----------------------------
 if selected_subject:
     current_chat = st.session_state.chat_history[selected_subject]
 
@@ -158,16 +145,8 @@ if selected_subject:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-        # if message["role"] == "assistant" and idx < len(st.session_state.video_history):
-        #     video_refs = st.session_state.video_history[idx]
-        #     if video_refs:
-        #         st.subheader("🎥 Video References")
-        #         for title, link in video_refs:
-        #             st.info(f"{title}\n\n{link}")
 
-# -----------------------------
 # Chat input
-# -----------------------------
 user_input = st.chat_input("Ask your question...")
 
 if user_input and st.session_state.chat_chain and selected_subject:
@@ -188,15 +167,6 @@ if user_input and st.session_state.chat_chain and selected_subject:
         answer = response["answer"]
         st.markdown(answer)
 
-        # YouTube suggestions
-        # video_titles, video_links = get_yt_video_link(user_input)
-
-        # st.subheader("🎥 Video References")
-        # video_refs = []
-
-        # for i in range(len(video_titles)):
-        #     st.info(f"{video_titles[i]}\n\n{video_links[i]}")
-        #     video_refs.append((video_titles[i], video_links[i]))
 
         # Save history
         st.session_state.chat_history[selected_subject].append({"role": "assistant", "content": answer})
